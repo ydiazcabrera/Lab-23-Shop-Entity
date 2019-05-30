@@ -1,0 +1,19 @@
+﻿@using Lab23Shop.Models
+<h2>Shop</h2>
+
+@foreach (Lab23Shop.Models.Item item in Model)
+   {
+    <p>@item.ItemName</p>
+   }
+        @{
+                 if (Session["LoggedInUser"] != null)
+                 {
+                    foreach (Lab23Shop.Models.Item item in Model)
+                    {
+                    <input type="button" name="BUY"/>
+                    }
+                 }
+            }
+
+
+
