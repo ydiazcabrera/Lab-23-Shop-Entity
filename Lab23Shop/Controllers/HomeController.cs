@@ -50,49 +50,54 @@ namespace Lab23Shop.Controllers
 
             return RedirectToAction("Index");
         }
+
         public ActionResult Login()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Login(string UserName, string Password)
         {
             List<User> Users = db.Users.ToList();
-            //var output= Users.
-            //    Where(u => u.FirstName == UserName && 
-            //    u.Password == Password);
+          
             foreach (User u in Users)
             {
                 if (u.FirstName == UserName && u.Password == Password)
                 {
-                    Session["LoggedInUser"] = u;// if not empty in shop view
+                    Session["LoggedInUser"] = u; // if not empty in shop view
+                    break;
                 }
             }
             return RedirectToAction("Index");
         }
         public ActionResult Shop()
         {
-            List<Item> i = db.Items.ToList(); 
-            return View(i);
+            List<Item> products= db.Items.ToList(); 
+            return View(products);
         }
-        public ActionResult Buy( int Id)
+        public ActionResult Buy( int ID)
         {
             if (Session["LoggedInUser"] != null)
             {
-                Item purchase = db.Items.Find(Id);
+                Item purchase = db.Items.Find(ID);
                 User buyer = (User)Session["LoggedInUser"];
+
                 if (buyer.Money < purchase.Price)
                 {
                     Session["Error"] = $"{buyer.FirstName} cannot afford {purchase.ItemName} at ${purchase.Price}";
+                    return RedirectToAction("Login");
                 }
                 else
                 {
                     buyer.Money -= purchase.Price;
+                    purchase.Quantity--;
                     db.Users.AddOrUpdate(buyer);
+                    db.Items.AddOrUpdate(purchase);
                     db.SaveChanges();
 
-                    Session["UserFuns"] = buyer.Money;
-                    Session["Price"] = purchase.Price;
+                    //Session["UserFuns"] = buyer.Money;
+                    //Session["Price"] = purchase.Price;
                    
                 }
             }

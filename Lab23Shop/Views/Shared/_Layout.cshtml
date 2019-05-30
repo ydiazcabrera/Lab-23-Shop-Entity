@@ -27,10 +27,10 @@
                     <li>@Html.ActionLink("Login", "Login", "Home")</li>
                     <li>@Html.ActionLink("Shop", "Shop", "Home")</li>
                     @if (Session["LoggedInUser"] != null)
-                    {
+                       {
                         User u = (User)Session["LoggedInUser"];
                         <li style="color:white">@u.FirstName is Logged in with $@u.Money</li>
-                    }
+                       }
                 </ul>
             </div>
         </div>
