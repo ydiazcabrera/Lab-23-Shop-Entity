@@ -19,5 +19,7 @@ namespace Lab23Shop.Models
         public string ItemDescription { get; set; }
         public Nullable<int> Quantity { get; set; }
         public Nullable<decimal> Price { get; set; }
+    
+        public virtual UserItem UserItem { get; set; }
     }
 }

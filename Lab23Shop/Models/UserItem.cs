@@ -12,13 +12,13 @@ namespace Lab23Shop.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class UserItem
     {
-        public int ID { get; set; }
-        public string FirstName { get; set; }
-        public string Password { get; set; }
-        public Nullable<decimal> Money { get; set; }
+        public int UserItemID { get; set; }
+        public Nullable<int> UserID { get; set; }
+        public Nullable<int> ItemID { get; set; }
     
-        public virtual UserItem UserItem { get; set; }
+        public virtual Item Item { get; set; }
+        public virtual User User { get; set; }
     }
 }

@@ -1,15 +1,21 @@
 ﻿@using Lab23Shop.Models
- 
 
 
 
-
-Welcome 
-@ViewBag.User.
-
+ Welcome @ViewBag.User.FirstName !
+<p>Password : @ViewBag.User.Password</p>
 
 <form action="~/Home/Buy">
     <input style="display:none;" name="Id" value="1" />
     <input type="submit" value="Elite Leggins $29.99" />
-    
+
+    <input style="display:none;" name="Id" value="2" />
+    <input type="submit" value=" Zumba Bag $20.00" />
+
+    <input style="display:none;" name="Id" value="3" />
+    <input type="submit" value=" Boxing Gloves $35.00" />
+
+    <input style="display:none;" name="Id" value="4" />
+    <input type="submit" value=" Nikey Breeze  75.95" />
+
 </form>
