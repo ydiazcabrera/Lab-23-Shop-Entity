@@ -10,7 +10,7 @@ namespace Lab23Shop.Controllers
 {
     public class HomeController : Controller
     {
-        ShopDBEntities3 db = new ShopDBEntities3();
+        ShopDBEntities5 db = new ShopDBEntities5();
 
         public ActionResult Index()
         {

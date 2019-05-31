@@ -12,7 +12,7 @@ namespace Lab23Shop.Controllers
 {
     public class UserItemsController : Controller
     {
-        private ShopDBEntities3 db = new ShopDBEntities3();
+        private ShopDBEntities5 db = new ShopDBEntities5();
 
         // GET: UserItems
         public ActionResult Index()
@@ -101,11 +101,17 @@ namespace Lab23Shop.Controllers
         // GET: UserItems/Delete/5
         public ActionResult Delete(int? id)
         {
+            User userid = db.Users.Find(id);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            
             UserItem userItem = db.UserItems.Find(id);
+            User u= db.Users.Find(userItem.UserID);
+            Item item= db.Items.Find(userItem.ItemID);
+            u.Money += item.Price;
+
             if (userItem == null)
             {
                 return HttpNotFound();

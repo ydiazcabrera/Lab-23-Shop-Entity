@@ -32,27 +32,27 @@
           <Property Name="Password" Type="nvarchar" MaxLength="20" />
           <Property Name="Money" Type="money" />
         </EntityType>
-        <Association Name="FK__UserItems__UserI__440B1D61">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="UserItems" Type="Self.UserItems" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="UserItems">
-              <PropertyRef Name="UserItemID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__UserItems__UserI__44FF419A">
-          <End Role="Items" Type="Self.Items" Multiplicity="1" />
-          <End Role="UserItems" Type="Self.UserItems" Multiplicity="0..1" />
+        <Association Name="FK__UserItems__ItemI__4D94879B">
+          <End Role="Items" Type="Self.Items" Multiplicity="0..1" />
+          <End Role="UserItems" Type="Self.UserItems" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Items">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="UserItems">
-              <PropertyRef Name="UserItemID" />
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserItems__UserI__4CA06362">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="UserItems" Type="Self.UserItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserItems">
+              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -60,12 +60,12 @@
           <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserItems" EntityType="Self.UserItems" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__UserItems__UserI__440B1D61" Association="Self.FK__UserItems__UserI__440B1D61">
-            <End Role="Users" EntitySet="Users" />
+          <AssociationSet Name="FK__UserItems__ItemI__4D94879B" Association="Self.FK__UserItems__ItemI__4D94879B">
+            <End Role="Items" EntitySet="Items" />
             <End Role="UserItems" EntitySet="UserItems" />
           </AssociationSet>
-          <AssociationSet Name="FK__UserItems__UserI__44FF419A" Association="Self.FK__UserItems__UserI__44FF419A">
-            <End Role="Items" EntitySet="Items" />
+          <AssociationSet Name="FK__UserItems__UserI__4CA06362" Association="Self.FK__UserItems__UserI__4CA06362">
+            <End Role="Users" EntitySet="Users" />
             <End Role="UserItems" EntitySet="UserItems" />
           </AssociationSet>
         </EntityContainer>
@@ -83,7 +83,7 @@
           <Property Name="ItemDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Quantity" Type="Int32" />
           <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="UserItem" Relationship="Self.FK__UserItems__UserI__44FF419A" FromRole="Items" ToRole="UserItems" />
+          <NavigationProperty Name="UserItems" Relationship="Self.FK__UserItems__ItemI__4D94879B" FromRole="Items" ToRole="UserItems" />
         </EntityType>
         <EntityType Name="UserItem">
           <Key>
@@ -92,8 +92,8 @@
           <Property Name="UserItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserID" Type="Int32" />
           <Property Name="ItemID" Type="Int32" />
-          <NavigationProperty Name="Item" Relationship="Self.FK__UserItems__UserI__44FF419A" FromRole="UserItems" ToRole="Items" />
-          <NavigationProperty Name="User" Relationship="Self.FK__UserItems__UserI__440B1D61" FromRole="UserItems" ToRole="Users" />
+          <NavigationProperty Name="Item" Relationship="Self.FK__UserItems__ItemI__4D94879B" FromRole="UserItems" ToRole="Items" />
+          <NavigationProperty Name="User" Relationship="Self.FK__UserItems__UserI__4CA06362" FromRole="UserItems" ToRole="Users" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -103,41 +103,41 @@
           <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Money" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="UserItem" Relationship="Self.FK__UserItems__UserI__440B1D61" FromRole="Users" ToRole="UserItems" />
+          <NavigationProperty Name="UserItems" Relationship="Self.FK__UserItems__UserI__4CA06362" FromRole="Users" ToRole="UserItems" />
         </EntityType>
-        <Association Name="FK__UserItems__UserI__44FF419A">
-          <End Role="Items" Type="Self.Item" Multiplicity="1" />
-          <End Role="UserItems" Type="Self.UserItem" Multiplicity="0..1" />
+        <Association Name="FK__UserItems__ItemI__4D94879B">
+          <End Role="Items" Type="Self.Item" Multiplicity="0..1" />
+          <End Role="UserItems" Type="Self.UserItem" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Items">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="UserItems">
-              <PropertyRef Name="UserItemID" />
+              <PropertyRef Name="ItemID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UserItems__UserI__440B1D61">
-          <End Role="Users" Type="Self.User" Multiplicity="1" />
-          <End Role="UserItems" Type="Self.UserItem" Multiplicity="0..1" />
+        <Association Name="FK__UserItems__UserI__4CA06362">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserItems" Type="Self.UserItem" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="UserItems">
-              <PropertyRef Name="UserItemID" />
+              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ShopDBEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ShopDBEntities5" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Items" EntityType="Self.Item" />
           <EntitySet Name="UserItems" EntityType="Self.UserItem" />
           <EntitySet Name="Users" EntityType="Self.User" />
-          <AssociationSet Name="FK__UserItems__UserI__44FF419A" Association="Self.FK__UserItems__UserI__44FF419A">
+          <AssociationSet Name="FK__UserItems__ItemI__4D94879B" Association="Self.FK__UserItems__ItemI__4D94879B">
             <End Role="Items" EntitySet="Items" />
             <End Role="UserItems" EntitySet="UserItems" />
           </AssociationSet>
-          <AssociationSet Name="FK__UserItems__UserI__440B1D61" Association="Self.FK__UserItems__UserI__440B1D61">
+          <AssociationSet Name="FK__UserItems__UserI__4CA06362" Association="Self.FK__UserItems__UserI__4CA06362">
             <End Role="Users" EntitySet="Users" />
             <End Role="UserItems" EntitySet="UserItems" />
           </AssociationSet>
@@ -147,7 +147,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ShopDBModelStoreContainer" CdmEntityContainer="ShopDBEntities3">
+        <EntityContainerMapping StorageEntityContainer="ShopDBModelStoreContainer" CdmEntityContainer="ShopDBEntities5">
           <EntitySetMapping Name="Items">
             <EntityTypeMapping TypeName="ShopDBModel.Item">
               <MappingFragment StoreEntitySet="Items">

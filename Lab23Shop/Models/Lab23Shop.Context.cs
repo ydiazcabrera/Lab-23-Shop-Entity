@@ -13,10 +13,10 @@ namespace Lab23Shop.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ShopDBEntities3 : DbContext
+    public partial class ShopDBEntities5 : DbContext
     {
-        public ShopDBEntities3()
-            : base("name=ShopDBEntities3")
+        public ShopDBEntities5()
+            : base("name=ShopDBEntities5")
         {
         }
     
