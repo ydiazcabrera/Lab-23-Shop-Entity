@@ -10,7 +10,7 @@ namespace Lab23Shop.Controllers
 {
     public class HomeController : Controller
     {
-        ShopDBEntities2 db = new ShopDBEntities2();
+        ShopDBEntities3 db = new ShopDBEntities3();
 
         public ActionResult Index()
         {
@@ -82,6 +82,7 @@ namespace Lab23Shop.Controllers
             {
                 Item purchase = db.Items.Find(ID);
                 User buyer = (User)Session["LoggedInUser"];
+                UserItem Cart = new UserItem() { ItemID= purchase.ID, UserID=buyer.ID };
 
                 if (buyer.Money < purchase.Price)
                 {
@@ -94,11 +95,9 @@ namespace Lab23Shop.Controllers
                     purchase.Quantity--;
                     db.Users.AddOrUpdate(buyer);
                     db.Items.AddOrUpdate(purchase);
+                    db.UserItems.Add(Cart);
                     db.SaveChanges();
-
-                    //Session["UserFuns"] = buyer.Money;
-                    //Session["Price"] = purchase.Price;
-                   
+                                                        
                 }
             }
             
@@ -108,6 +107,17 @@ namespace Lab23Shop.Controllers
         {
             return View();
         }
+        //public ActionResult List(int id)
+        //{
+        //    if (Session["LoggedInUser"] != null)
+        //    {
+        //        List<UserItem> Users = db.UserItems.ToList();
+                
+
+        //    }
+            
+        //        return View();
+        //}
     }
 
 }

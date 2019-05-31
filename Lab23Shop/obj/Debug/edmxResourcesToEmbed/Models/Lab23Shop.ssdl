@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShopDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemName" Type="varchar" MaxLength="20" />
+    <Property Name="ItemDescription" Type="varchar" MaxLength="200" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Price" Type="money" />
+  </EntityType>
+  <EntityType Name="UserItems">
+    <Key>
+      <PropertyRef Name="UserItemID" />
+    </Key>
+    <Property Name="UserItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="ItemID" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="20" />
+    <Property Name="Password" Type="nvarchar" MaxLength="20" />
+    <Property Name="Money" Type="money" />
+  </EntityType>
+  <Association Name="FK__UserItems__UserI__440B1D61">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserItems" Type="Self.UserItems" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserItems">
+        <PropertyRef Name="UserItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserItems__UserI__44FF419A">
+    <End Role="Items" Type="Self.Items" Multiplicity="1" />
+    <End Role="UserItems" Type="Self.UserItems" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Items">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserItems">
+        <PropertyRef Name="UserItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ShopDBModelStoreContainer">
+    <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserItems" EntityType="Self.UserItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__UserItems__UserI__440B1D61" Association="Self.FK__UserItems__UserI__440B1D61">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserItems" EntitySet="UserItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserItems__UserI__44FF419A" Association="Self.FK__UserItems__UserI__44FF419A">
+      <End Role="Items" EntitySet="Items" />
+      <End Role="UserItems" EntitySet="UserItems" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

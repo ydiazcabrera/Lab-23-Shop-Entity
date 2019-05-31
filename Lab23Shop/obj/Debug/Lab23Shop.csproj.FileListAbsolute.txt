@@ -1,3 +1,4 @@
+C:\Users\yendi\source\repos\Lab23Shop\Lab23Shop\obj\Debug\Lab23Shop.csproj.CoreCompileInputs.cache
 C:\Users\yendi\source\repos\Lab23Shop\Lab23Shop\bin\Lab23Shop.dll.config
 C:\Users\yendi\source\repos\Lab23Shop\Lab23Shop\bin\Lab23Shop.dll
 C:\Users\yendi\source\repos\Lab23Shop\Lab23Shop\bin\Lab23Shop.pdb
@@ -73,8 +74,6 @@ C:\Users\yendi\source\repos\Lab23Shop\Lab23Shop\bin\System.Web.WebPages.Razor.xm
 C:\Users\yendi\source\repos\Lab23Shop\Lab23Shop\bin\Newtonsoft.Json.xml
 C:\Users\yendi\source\repos\Lab23Shop\Lab23Shop\bin\Antlr3.Runtime.pdb
 C:\Users\yendi\source\repos\Lab23Shop\Lab23Shop\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\yendi\source\repos\Lab23Shop\Lab23Shop\obj\Debug\Lab23Shop.csprojAssemblyReference.cache
-C:\Users\yendi\source\repos\Lab23Shop\Lab23Shop\obj\Debug\Lab23Shop.csproj.CoreCompileInputs.cache
 C:\Users\yendi\source\repos\Lab23Shop\Lab23Shop\obj\Debug\Lab23Shop.csproj.CopyComplete
 C:\Users\yendi\source\repos\Lab23Shop\Lab23Shop\obj\Debug\Lab23Shop.dll
 C:\Users\yendi\source\repos\Lab23Shop\Lab23Shop\obj\Debug\Lab23Shop.pdb

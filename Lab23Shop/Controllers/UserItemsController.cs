@@ -12,7 +12,7 @@ namespace Lab23Shop.Controllers
 {
     public class UserItemsController : Controller
     {
-        private ShopDBEntities2 db = new ShopDBEntities2();
+        private ShopDBEntities3 db = new ShopDBEntities3();
 
         // GET: UserItems
         public ActionResult Index()

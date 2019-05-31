@@ -13,10 +13,10 @@ namespace Lab23Shop.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ShopDBEntities2 : DbContext
+    public partial class ShopDBEntities3 : DbContext
     {
-        public ShopDBEntities2()
-            : base("name=ShopDBEntities2")
+        public ShopDBEntities3()
+            : base("name=ShopDBEntities3")
         {
         }
     
@@ -26,7 +26,7 @@ namespace Lab23Shop.Models
         }
     
         public virtual DbSet<Item> Items { get; set; }
-        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserItem> UserItems { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

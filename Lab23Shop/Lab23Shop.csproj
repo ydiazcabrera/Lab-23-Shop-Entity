@@ -134,28 +134,28 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Item.cs">
-      <DependentUpon>ShopDB.tt</DependentUpon>
+      <DependentUpon>Lab23Shop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ShopDB.Context.cs">
+    <Compile Include="Models\Lab23Shop.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ShopDB.Context.tt</DependentUpon>
+      <DependentUpon>Lab23Shop.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ShopDB.cs">
+    <Compile Include="Models\Lab23Shop.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ShopDB.tt</DependentUpon>
+      <DependentUpon>Lab23Shop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ShopDB.Designer.cs">
+    <Compile Include="Models\Lab23Shop.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ShopDB.edmx</DependentUpon>
+      <DependentUpon>Lab23Shop.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>ShopDB.tt</DependentUpon>
+      <DependentUpon>Lab23Shop.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserItem.cs">
-      <DependentUpon>ShopDB.tt</DependentUpon>
+      <DependentUpon>Lab23Shop.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -168,24 +168,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\ShopDB.Context.tt">
+    <Content Include="Models\Lab23Shop.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ShopDB.edmx</DependentUpon>
-      <LastGenOutput>ShopDB.Context.cs</LastGenOutput>
+      <DependentUpon>Lab23Shop.edmx</DependentUpon>
+      <LastGenOutput>Lab23Shop.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ShopDB.tt">
+    <Content Include="Models\Lab23Shop.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ShopDB.edmx</DependentUpon>
-      <LastGenOutput>ShopDB.cs</LastGenOutput>
+      <DependentUpon>Lab23Shop.edmx</DependentUpon>
+      <LastGenOutput>Lab23Shop.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\ShopDB.edmx">
+    <EntityDeploy Include="Models\Lab23Shop.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ShopDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>Lab23Shop.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\ShopDB.edmx.diagram">
-      <DependentUpon>ShopDB.edmx</DependentUpon>
+    <Content Include="Models\Lab23Shop.edmx.diagram">
+      <DependentUpon>Lab23Shop.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
